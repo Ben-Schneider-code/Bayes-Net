@@ -1,0 +1,9 @@
+IP,Fraud,OC,value
+T,T,T,0.02
+F,T,T,0.98
+T,F,T,0.01
+F,F,T,0.99
+T,T,F,0.011
+F,T,F,0.989
+T,F,F,0.001
+F,F,F,0.999
