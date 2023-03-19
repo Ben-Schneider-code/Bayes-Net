@@ -1,20 +1,23 @@
+import pandas as pd
+import sys
+
+
 #Query 1
-#queryVar = ['Fraud']
-#evidenceVar = []
-#evidenceValues = []
-#hiddenVar = ['Trav']
+queryVar = ['Fraud']
+evidenceVar = []
+evidenceValues = []
+hiddenVar = ['Trav']
+
 
 # Query 2
-queryVar = []
-evidenceVar = ['Fraud','FP','IP','CRP']
-evidenceValues = ['T', 'T','F','T']
-hiddenVar = ['Trav','OC']
+if (len(sys.argv) > 1) and (sys.argv[1] == 'query2'):
+    queryVar = []
+    evidenceVar = ['Fraud','FP','IP','CRP']
+    evidenceValues = ['T', 'T','F','T']
+    hiddenVar = ['Trav','OC']
 
 # Whether the query is a joint table or not
 isJoint = True;
-
-
-import pandas as pd
 
 class factor:
     def __init__(self, path=None, table=None):
@@ -41,7 +44,7 @@ def product(fact1, fact2):
     new_factor['value'] = new_values
     new_factor=new_factor.drop(columns=['factor_left','factor_right'])
 
-    print("\n\n\n------------ Created new factor----------------")
+    print("\n\n\n-------- Created new factor by factor product -----------")
     print(new_factor)
 
     return factor(table=new_factor)
