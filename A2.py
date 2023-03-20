@@ -7,17 +7,18 @@ queryVar = ['Fraud']
 evidenceVar = []
 evidenceValues = []
 hiddenVar = ['Trav']
-
+# Whether the query is a joint table or not
+isJoint = True;
 
 # Query 2
 if (len(sys.argv) > 1) and (sys.argv[1] == 'query2'):
-    queryVar = []
-    evidenceVar = ['Fraud','FP','IP','CRP']
-    evidenceValues = ['T', 'T','F','T']
+    queryVar = ['Fraud']
+    evidenceVar = ['FP','IP','CRP']
+    evidenceValues = ['T','F','T']
     hiddenVar = ['Trav','OC']
+    isJoint = False;
 
-# Whether the query is a joint table or not
-isJoint = True;
+
 
 class factor:
     def __init__(self, path=None, table=None):
