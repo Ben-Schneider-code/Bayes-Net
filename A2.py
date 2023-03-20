@@ -149,7 +149,11 @@ def filterFactors(factorList,queryVar, evidenceVar, hiddenVar):
 
 def inference(factorList, queryVar, evidenceVar, hiddenVar):
 
-    joinOrder = [x for x in variables if inQuery(x,queryVar, evidenceVar, hiddenVar)] # figure out join order
+    joinOrder = []
+    joinOrder.extend(hiddenVar)
+    joinOrder.extend(evidenceVar)
+    joinOrder.extend(queryVar)
+
     factorList = filterFactors(factorList, queryVar, evidenceVar, hiddenVar) # get rid of factors we don't need in the query
 
     # Fix our evidence factors
